@@ -6,6 +6,7 @@ from collections import Counter
 from operator import itemgetter as itemgtr
 import jieba
 import file_op_utils as foutils
+import pdb
 
 
 class WordCounter():
@@ -23,14 +24,13 @@ class WordCounter():
     def Word_Count(self, text_list, cut_all=False):
         flted_word_list = []
         count = 0
-
+        pdb.set_trace()
         for line in text_list:
             res = jieba.cut(line, cut_all=cut_all)
             res = list(res)
             text_list[count] = res
             count += 1
             flted_word_list += res
-
         self.count_res = MultiCounter(flted_word_list)
 
         for word in flted_word_list:
